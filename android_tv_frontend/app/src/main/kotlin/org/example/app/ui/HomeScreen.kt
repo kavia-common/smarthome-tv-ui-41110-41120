@@ -1,3 +1,5 @@
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+
 package org.example.app.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -37,7 +39,9 @@ fun HomeScreen(
         }
     ) { padding ->
         LazyVerticalGrid(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding),
             contentPadding = PaddingValues(24.dp),
             columns = GridCells.Adaptive(minSize = 240.dp)
         ) {

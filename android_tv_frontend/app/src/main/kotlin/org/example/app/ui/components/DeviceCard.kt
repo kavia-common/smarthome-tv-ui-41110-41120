@@ -3,6 +3,7 @@ package org.example.app.ui.components
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,7 +13,10 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.onFocusChanged
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsFocusedAsState
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -24,10 +28,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.key.onPreviewKeyEvent
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.clickable
 import org.example.app.model.SmartDevice
 
 /**
@@ -41,7 +43,9 @@ fun DeviceCard(
     modifier: Modifier = Modifier,
     onClick: (SmartDevice) -> Unit
 ) {
-    var focused by remember { mutableStateOf(false) }
+    val focusRequester = remember { FocusRequester() }
+    val interactionSource = remember { MutableInteractionSource() }
+    val focused by interactionSource.collectIsFocusedAsState()
     val scale by animateFloatAsState(targetValue = if (focused) 1.06f else 1.0f, label = "scale")
     val borderColor by animateColorAsState(
         targetValue = if (focused) MaterialTheme.colorScheme.primary else Color.Transparent,
@@ -51,10 +55,10 @@ fun DeviceCard(
     Card(
         modifier = modifier
             .scale(scale)
-            .focusable(true)
+            .focusRequester(focusRequester)
+            .focusable(true, interactionSource = interactionSource)
             .onPreviewKeyEvent { false }
-            .onFocusChanged { state -> focused = state.isFocused }
-            .clickable(onClick = { onClick(device) }),
+            .clickable(interactionSource = interactionSource, indication = null) { onClick(device) },
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(2.dp, borderColor),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
