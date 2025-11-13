@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SmartHome TV</string>
+    <string name="back">Back</string>
+    <string name="fullscreen">Fullscreen</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="mute">Mute</string>
+    <string name="unmute">Unmute</string>
+</resources>
