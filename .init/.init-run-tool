@@ -1,0 +1,4 @@
+{
+    "command": "./gradlew installDebug",
+    "working_directory": "/home/kavia/workspace/code-generation/smarthome-tv-ui-41110-41120/android_tv_frontend"
+}
