@@ -11,10 +11,11 @@ androidApplication {
         implementation(platform("androidx.compose:compose-bom:2024.09.03"))
         implementation("androidx.compose.ui:ui")
         implementation("androidx.compose.ui:ui-tooling-preview")
-        implementation("androidx.compose.material3:material3") // version from BOM
+        implementation("androidx.compose.material3:material3")
         implementation("androidx.activity:activity-compose:1.9.3")
         implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")
         implementation("androidx.navigation:navigation-compose:2.8.3")
+        implementation("androidx.compose.material:material-icons-extended")
 
         // TV support lib (non-Compose UI components if needed)
         implementation("androidx.leanback:leanback:1.2.0")

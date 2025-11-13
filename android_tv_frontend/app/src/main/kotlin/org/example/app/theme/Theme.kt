@@ -1,9 +1,9 @@
 package org.example.app.theme
 
 import androidx.compose.material3.ColorScheme
-import androidx.compose.material3.DarkColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
@@ -14,7 +14,7 @@ private val Background = Color(0xFF0B0F14)
 private val Surface = Color(0xFF111827)
 private val Error = Color(0xFFF87171)
 
-private val DarkColors: ColorScheme = DarkColorScheme(
+private val DarkColors: ColorScheme = darkColorScheme(
     primary = Primary,
     onPrimary = Color.White,
     secondary = Secondary,

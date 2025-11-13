@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.onFocusChanged
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -26,6 +27,7 @@ import androidx.compose.ui.input.key.onPreviewKeyEvent
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.clickable
 import org.example.app.model.SmartDevice
 
 /**
@@ -50,12 +52,12 @@ fun DeviceCard(
         modifier = modifier
             .scale(scale)
             .focusable(true)
-            .onPreviewKeyEvent { false },
-        onClick = { onClick(device) },
+            .onPreviewKeyEvent { false }
+            .onFocusChanged { state -> focused = state.isFocused }
+            .clickable(onClick = { onClick(device) }),
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(2.dp, borderColor),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        onFocusChanged = { focused = it.isFocused }
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Column(
             modifier = Modifier

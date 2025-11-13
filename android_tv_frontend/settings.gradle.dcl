@@ -15,23 +15,18 @@ include("app")
 include("list")
 include("utilities")
 
-// Keep defaults minimal and within supported fields for the declarative DSL.
 defaults {
     androidApplication {
+        // Set required JDK toolchain for Android builds
         jdkVersion = 17
         compileSdk = 35
         minSdk = 30
-
-        versionCode = 1
-        versionName = "0.1"
-        applicationId = "org.gradle.experimental.android.app"
-        // Compose enablement and dependencies are moved to module-level build.gradle.dcl for compatibility.
+        namespace = "org.example.app"
     }
-
     androidLibrary {
+        // Ensure library modules inherit required toolchain and SDK settings
         jdkVersion = 17
         compileSdk = 35
         minSdk = 30
-        // Compose configuration for libraries is also handled at module-level if/when needed.
     }
 }
