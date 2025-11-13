@@ -1,5 +1,3 @@
-@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
-
 package org.example.app.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -12,6 +10,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -33,8 +32,8 @@ fun HomeScreen(
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            androidx.compose.material3.TopAppBar(
-                title = { Text("SmartHome TV") }
+            org.example.app.ui.components.AppBar(
+                title = "SmartHome TV"
             )
         }
     ) { padding ->
