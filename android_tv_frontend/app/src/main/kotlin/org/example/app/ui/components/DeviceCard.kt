@@ -32,7 +32,7 @@ import org.example.app.model.SmartDevice
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.focusTarget
-import androidx.compose.ui.focus.focusable
+import androidx.compose.foundation.focusable
 
 /**
  * PUBLIC_INTERFACE

@@ -5,6 +5,10 @@
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
     <uses-feature android:name="android.hardware.faketouch" android:required="false" />
 
+    <!-- Declare Leanback features for Android TV compliance -->
+    <uses-feature android:name="android.software.leanback" android:required="false" />
+    <uses-feature android:name="android.hardware.type.television" android:required="false" />
+
     <application
         android:label="@string/app_name"
         android:banner="@drawable/ic_tv_banner"
